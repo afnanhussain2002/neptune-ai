@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* ── Tailwind v4: custom tokens & keyframes ─────────────────── */
+@theme {
+  --font-heading: 'Syne', system-ui, sans-serif;
+  --font-sans:    'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  @keyframes neptune-float {
+    0%,100% { transform: translateY(0px);   }
+    50%     { transform: translateY(-12px); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes dotBounce {
+    0%,80%,100% { transform: scale(0.8); opacity: 0.45; }
+    40%         { transform: scale(1.1); opacity: 1; }
+  }
+  @keyframes pulseDot {
+    0%,100% { opacity: 1;   transform: scale(1);   }
+    50%     { opacity: 0.4; transform: scale(0.75); }
+  }
+  @keyframes twinkle {
+    0%,100% { opacity: var(--star-op, 0.6); }
+    50%     { opacity: calc(var(--star-op, 0.6) * 0.15); }
+  }
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    background: #04060f;
+    color: #e8f2ff;
+    font-size: 14px;
+  }
+
+  button { cursor: pointer; border: none; background: transparent; }
+  textarea { font-family: inherit; resize: none; }
+}
+
+/* ── Utilities ──────────────────────────────────────────────── */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(79,200,232,0.12) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar        { width: 4px; height: 4px; }
+  .scrollbar-thin::-webkit-scrollbar-track  { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb  { background: rgba(79,200,232,0.15); border-radius: 4px; }
+
+  .font-heading { font-family: var(--font-heading); }
+
+  .star-twinkle {
+    animation: twinkle var(--star-dur, 3s) ease-in-out var(--star-delay, 0s) infinite;
+  }
+}

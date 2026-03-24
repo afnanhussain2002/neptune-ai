@@ -1,0 +1,83 @@
+/* ── Neptune Planet ───────────────────────────────────────────── */
+.neptune-planet {
+  width:  130px;
+  height: 130px;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  animation: neptune-float 6s ease-in-out infinite;
+
+  background:
+    /* Layer 2: Atmosphere highlight */
+    radial-gradient(ellipse at 20% 15%, rgba(100,200,240,0.35) 0%, transparent 50%),
+    /* Layer 3: Atmospheric band streaks */
+    repeating-linear-gradient(
+      162deg,
+      transparent         0px,
+      transparent         16px,
+      rgba(40,100,180,0.12) 16px,
+      rgba(40,100,180,0.12) 20px
+    ),
+    /* Layer 1: Planet body */
+    radial-gradient(ellipse at 30% 25%,
+      #3a90d8  0%,
+      #1a4a90 25%,
+      #0e2660 55%,
+      #070f30 100%
+    );
+
+  box-shadow:
+    /* Rim light — upper-left */
+    inset  7px  7px 14px rgba(120,210,245,0.55),
+    /* Dark shadow — lower-right */
+    inset -9px -9px 22px rgba(4,6,15,0.85),
+    /* Outer glow */
+    0 0  60px rgba(30,80,180,0.35),
+    0 0 120px rgba(30,80,180,0.15),
+    0 0  28px rgba(79,200,232,0.18);
+}
+
+/* ── Textarea placeholder ─────────────────────────────────────── */
+textarea::placeholder {
+  color: rgba(200,216,240,0.25);
+}
+
+/* ── Prose inside message bubbles ────────────────────────────── */
+.prose-neptune { line-height: 1.72; }
+.prose-neptune p              { margin-bottom: 0.55rem; }
+.prose-neptune p:last-child   { margin-bottom: 0; }
+.prose-neptune strong         { color: #c8e0ff; font-weight: 600; }
+.prose-neptune em             { color: rgba(200,216,240,0.6); }
+.prose-neptune code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 12.5px;
+  background: rgba(10,20,50,0.6);
+  border: 1px solid rgba(79,180,232,0.15);
+  border-radius: 4px;
+  padding: 2px 6px;
+  color: #4fc8e8;
+}
+.prose-neptune pre {
+  background: rgba(7,15,48,0.7);
+  border: 1px solid rgba(79,180,232,0.12);
+  border-radius: 10px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  margin: 10px 0;
+}
+.prose-neptune pre code        { background: none; border: none; padding: 0; }
+.prose-neptune ul,
+.prose-neptune ol              { padding-left: 20px; margin-bottom: 9px; }
+.prose-neptune li              { margin-bottom: 4px; }
+.prose-neptune h1,
+.prose-neptune h2,
+.prose-neptune h3 {
+  color: #e8f2ff; font-weight: 700;
+  margin: 14px 0 6px; letter-spacing: -0.01em;
+}
+.prose-neptune blockquote {
+  border-left: 3px solid #4fc8e8;
+  padding-left: 14px;
+  color: rgba(200,216,240,0.6);
+  margin: 8px 0;
+}
