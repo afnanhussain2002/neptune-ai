@@ -331,20 +331,51 @@ function HistoryPanel({ chats, activeChatId, onSelect, onNew, onDelete, open, on
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-3.5 py-4"
-             style={{ borderBottom: '1px solid rgba(79,180,232,0.08)' }}>
-          <span className="flex items-center gap-2 text-[13.5px] font-bold font-heading"
-                style={{ color: '#e8f2ff' }}>
-            <NeptuneLogo /> Neptune AI
-          </span>
-          <button
-            className="w-7 h-7 rounded-lg flex items-center justify-center transition-all"
-            style={{ color: 'rgba(200,216,240,0.4)' }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(79,180,232,0.1)'; e.currentTarget.style.color = '#4fc8e8'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'transparent';           e.currentTarget.style.color = 'rgba(200,216,240,0.4)'; }}
-            onClick={onClose}
-          >{IC.close}</button>
-        </div>
+<div className="flex items-center justify-between px-3.5 py-4"
+     style={{ borderBottom: '1px solid rgba(79,180,232,0.08)' }}>
+  <span className="flex items-center gap-2 text-[13.5px] font-bold font-heading"
+        style={{ color: '#e8f2ff' }}>
+    <NeptuneLogo /> Neptune AI
+  </span>
+  
+  {/* Icon Links */}
+  <div className="flex items-center gap-4">
+    <a 
+      href="https://github.com/afnanhussain2002" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="text-lg text-gray-400 hover:text-blue-400 transition-colors"
+    >
+      <FaGithub />
+    </a>
+    <a 
+      href="https://x.com/MdAfnanHussain" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="text-lg text-gray-400 hover:text-blue-400 transition-colors"
+    >
+      <FaTwitter />
+    </a>
+    <a 
+      href="https://linkedin.com/in/md-afnan-hussain" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="text-lg text-gray-400 hover:text-blue-400 transition-colors"
+    >
+      <FaLinkedin />
+    </a>
+  </div>
+
+  <button
+    className="w-7 h-7 rounded-lg flex items-center justify-center transition-all"
+    style={{ color: 'rgba(200,216,240,0.4)' }}
+    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(79,180,232,0.1)'; e.currentTarget.style.color = '#4fc8e8'; }}
+    onMouseLeave={e => { e.currentTarget.style.background = 'transparent';           e.currentTarget.style.color = 'rgba(200,216,240,0.4)'; }}
+    onClick={onClose}
+  >
+    {IC.close}
+  </button>
+</div>
 
         {/* New chat */}
         <button
