@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import TextareaAutosize from "react-textarea-autosize";
+import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 import "./App.css";
+
 
 const API = import.meta.env.VITE_API_URL ?? "";
 
@@ -337,44 +339,16 @@ function HistoryPanel({ chats, activeChatId, onSelect, onNew, onDelete, open, on
         style={{ color: '#e8f2ff' }}>
     <NeptuneLogo /> Neptune AI
   </span>
-  
-  {/* Icon Links */}
-  <div className="flex items-center gap-4">
-    <a 
-      href="https://github.com/afnanhussain2002" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      className="text-lg text-gray-400 hover:text-blue-400 transition-colors"
-    >
-      <FaGithub />
-    </a>
-    <a 
-      href="https://x.com/MdAfnanHussain" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      className="text-lg text-gray-400 hover:text-blue-400 transition-colors"
-    >
-      <FaTwitter />
-    </a>
-    <a 
-      href="https://linkedin.com/in/md-afnan-hussain" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="text-lg text-gray-400 hover:text-blue-400 transition-colors"
-    >
-      <FaLinkedin />
-    </a>
-  </div>
 
-  <button
-    className="w-7 h-7 rounded-lg flex items-center justify-center transition-all"
-    style={{ color: 'rgba(200,216,240,0.4)' }}
-    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(79,180,232,0.1)'; e.currentTarget.style.color = '#4fc8e8'; }}
-    onMouseLeave={e => { e.currentTarget.style.background = 'transparent';           e.currentTarget.style.color = 'rgba(200,216,240,0.4)'; }}
-    onClick={onClose}
-  >
-    {IC.close}
-  </button>
+  <div className="flex items-center gap-2">
+    <button
+      className="w-7 h-7 rounded-lg flex items-center justify-center transition-all"
+      style={{ color: 'rgba(200,216,240,0.4)' }}
+      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(79,180,232,0.1)'; e.currentTarget.style.color = '#4fc8e8'; }}
+      onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(200,216,240,0.4)'; }}
+      onClick={onClose}
+    >{IC.close}</button>
+  </div>
 </div>
 
         {/* New chat */}
@@ -694,39 +668,55 @@ export default function App() {
       {/* ── Main ── */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden relative z-10">
 
-        {/* Topbar */}
-        <div
-          className="flex items-center justify-between px-5 py-2.5 shrink-0"
-          style={{
-            background:     'rgba(4,6,15,0.72)',
-            backdropFilter: 'blur(10px)',
-            borderBottom:   '1px solid rgba(79,180,232,0.07)',
-          }}
-        >
-          <RateLimitBadge rateLimit={rateLimit} />
+    {/* Topbar */}
+<div
+  className="flex items-center justify-between px-5 py-2.5 shrink-0"
+  style={{
+    background:     'rgba(4,6,15,0.72)',
+    backdropFilter: 'blur(10px)',
+    borderBottom:   '1px solid rgba(79,180,232,0.07)',
+  }}
+>
+  {/* Left - Rate Limit */}
+  <RateLimitBadge rateLimit={rateLimit} />
 
-          <div
-            className="flex items-center gap-2 rounded-full px-3 py-1.5 text-[13px]"
-            style={{
-              background:     'rgba(10,18,40,0.7)',
-              border:         '1px solid rgba(79,180,232,0.14)',
-              backdropFilter: 'blur(8px)',
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full shrink-0"
-                  style={{ background: '#4ade80', boxShadow: '0 0 6px #4ade80' }} />
-            <div
-              className="w-[26px] h-[26px] rounded-full flex items-center justify-center
-                         text-[11px] font-bold shrink-0"
-              style={{
-                background: 'radial-gradient(ellipse at 30% 25%, #3a90d8, #1a4a90 60%, #070f30)',
-                color:      '#e8f2ff',
-                border:     '1px solid rgba(79,180,232,0.3)',
-              }}
-            >N</div>
-            <span style={{ color: '#e8f2ff' }}>Neptune AI</span>
-          </div>
-        </div>
+  {/* Center - Neptune AI */}
+  <div
+    className="flex items-center gap-2 rounded-full px-3 py-1.5 text-[13px]"
+    style={{
+      background:     'rgba(10,18,40,0.7)',
+      border:         '1px solid rgba(79,180,232,0.14)',
+      backdropFilter: 'blur(8px)',
+    }}
+  >
+    <span className="w-1.5 h-1.5 rounded-full shrink-0"
+          style={{ background: '#4ade80', boxShadow: '0 0 6px #4ade80' }} />
+    <NeptuneLogo />
+    <span style={{ color: '#e8f2ff' }}>Neptune AI</span>
+  </div>
+
+  {/* Right - Social Icons */}
+  <div className="flex items-center gap-3">
+    <a href="https://github.com/afnanhussain2002" target="_blank" rel="noopener noreferrer"
+       style={{ color: 'rgba(200,216,240,0.4)', fontSize: '18px', lineHeight: 1 }}
+       onMouseEnter={e => e.currentTarget.style.color = '#4fc8e8'}
+       onMouseLeave={e => e.currentTarget.style.color = 'rgba(200,216,240,0.4)'}>
+      <FaGithub />
+    </a>
+    <a href="https://x.com/MdAfnanHussain" target="_blank" rel="noopener noreferrer"
+       style={{ color: 'rgba(200,216,240,0.4)', fontSize: '18px', lineHeight: 1 }}
+       onMouseEnter={e => e.currentTarget.style.color = '#4fc8e8'}
+       onMouseLeave={e => e.currentTarget.style.color = 'rgba(200,216,240,0.4)'}>
+      <FaTwitter />
+    </a>
+    <a href="https://linkedin.com/in/md-afnan-hussain" target="_blank" rel="noopener noreferrer"
+       style={{ color: 'rgba(200,216,240,0.4)', fontSize: '18px', lineHeight: 1 }}
+       onMouseEnter={e => e.currentTarget.style.color = '#4fc8e8'}
+       onMouseLeave={e => e.currentTarget.style.color = 'rgba(200,216,240,0.4)'}>
+      <FaLinkedin />
+    </a>
+  </div>
+</div>
 
         {/* ── Scroll Area ── */}
         <div className="flex-1 min-h-0 overflow-y-auto flex flex-col scrollbar-thin">
